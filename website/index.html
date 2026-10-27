@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusFind — Campus Lost-and-Found System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header>
+    <div class="container">
+      <span class="hero-tag">Software Engineering Capstone • Part I</span>
+      <h1>CampusFind: University Lost &amp; Found System</h1>
+      <p class="lead">
+        A desktop application engineered with Java Swing, local flat-file persistence, and a distinctive 
+        <strong>Two-Party Private Claim Verification</strong> mechanism to prevent fraudulent claims.
+      </p>
+
+      <div class="hero-badges">
+        <span class="badge"><strong>Course:</strong> Software Engineering</span>
+        <span class="badge"><strong>Process Model:</strong> Iterative / Incremental</span>
+        <span class="badge"><strong>GUI:</strong> Java Swing</span>
+        <span class="badge"><strong>Architecture:</strong> Layered Service Model</span>
+        <span class="badge"><strong>Persistence:</strong> Local CSV Storage</span>
+        <span class="badge"><strong>QA:</strong> 10/10 Tests Passed</span>
+      </div>
+
+      <div class="btn-group">
+        <a href="#prototype" class="btn btn-primary">Explore Prototype UI</a>
+        <a href="#diagrams" class="btn btn-outline">View UML Diagrams</a>
+        <a href="https://github.com/antor1112225/campusfind-java-se-capstone" class="btn btn-outline" target="_blank" rel="noopener">GitHub Repository ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ACADEMIC METADATA BAR -->
+  <div style="background: #E2E8F0; padding: 12px 0; border-bottom: 1px solid #CBD5E1; font-size: 0.88rem;">
+    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+      <span><strong>Student Name:</strong> [STUDENT NAME]</span>
+      <span><strong>Student ID:</strong> [STUDENT ID]</span>
+      <span><strong>Department:</strong> [DEPARTMENT]</span>
+      <span><strong>University:</strong> [UNIVERSITY NAME]</span>
+      <span><strong>Instructor:</strong> [INSTRUCTOR NAME]</span>
+      <span><strong>Date:</strong> October 28, 2026</span>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- 1. EXECUTIVE SUMMARY & PROBLEM STATEMENT -->
+    <section id="overview">
+      <h2 class="section-title">1. Project Overview &amp; Problem Statement</h2>
+      <p class="section-subtitle">Addressing campus property recovery challenges through sound software engineering principles.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="feature-icon">⚠️</div>
+          <h3>The Campus Problem</h3>
+          <p>
+            Misplaced personal belongings (student IDs, laptops, keys, backpacks, calculators) are common across 
+            university grounds. Current informal solutions—such as unstructured social media posts, scattered departmental 
+            front desks, or paper pin-boards—suffer from severe fragmentation. Crucially, when items are listed publicly 
+            with all visible details, dishonest individuals can easily claim valuable items they do not own.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="feature-icon">🛡️</div>
+          <h3>The CampusFind Solution</h3>
+          <p>
+            CampusFind implements a centralized catalog with a <strong>Two-Tier Disclosure Policy</strong>. 
+            Public users can view general item attributes (title, category, exterior color, location found) 
+            to identify their lost property. However, the finder also enters a <strong>confidential private clue</strong> 
+            (e.g., hidden mark, engraving, pocket contents) that is withheld from public tables. A claimant must 
+            independently describe this secret clue before staff authorize release.
+          </p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <h4>Key Architectural Distinction: Private Claim Verification</h4>
+        <p>
+          Unlike generic student-record CRUD projects, CampusFind incorporates real-world business constraints. 
+          By strictly separating public catalog queries from confidential verification clues in the service and presentation layers, 
+          the system demonstrates the core Software Engineering principle of <em>Information Hiding</em>.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. CORE FEATURES & ARCHITECTURE -->
+    <section id="features">
+      <h2 class="section-title">2. Core Functional Capabilities</h2>
+      <p class="section-subtitle">Engineered for realistic student use, high clarity, and zero external runtime dependencies.</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="feature-icon">📝</div>
+          <h3>Report Lost &amp; Found</h3>
+          <p>
+            Standardized intake form supporting LOST and FOUND classifications across 8 standard categories. 
+            Captures location, reporter contact, and confidential verification clues for found items.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="feature-icon">🔍</div>
+          <h3>Public Search &amp; Filter</h3>
+          <p>
+            Real-time multi-criteria filtering by keyword, item category, report type, and resolution status. 
+            The custom table model rigorously excludes private clues from public view.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="feature-icon">🔐</div>
+          <h3>Claim Submission</h3>
+          <p>
+            Students file ownership claims against open found items, submitting their contact information and 
+            detailed secret proof. Validates target item status before accepting claims into PENDING status.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="feature-icon">⚖️</div>
+          <h3>Staff Review &amp; Decision</h3>
+          <p>
+            Demonstration admin console presenting a side-by-side comparison of the founder's confidential clue 
+            against the claimant's answer, enabling staff to accept or reject claims with recorded remarks.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="feature-icon">🔄</div>
+          <h3>Lifecycle Auto-Resolution</h3>
+          <p>
+            Accepting a claim transitions the item status from OPEN to RESOLVED and automatically marks competing 
+            pending claims as REJECTED with an explanatory notice.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="feature-icon">💾</div>
+          <h3>Local File Persistence</h3>
+          <p>
+            Records are persisted locally in human-readable CSV files (<code>data/items.csv</code> and <code>data/claims.csv</code>). 
+            If files are absent on first launch, initial demonstration data is automatically seeded.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. INTERFACE PROTOTYPE SHOWCASE -->
+    <section id="prototype">
+      <h2 class="section-title">3. Interface Prototype Showcase</h2>
+      <p class="section-subtitle">Java Swing desktop graphical user interface with responsive tabbed workflow.</p>
+
+      <div class="grid-2">
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Tab 1: Browse &amp; Search Items</h4>
+          </div>
+          <div class="diagram-body">
+            <img src="../proposal/screenshots/ui-browse.svg" alt="Browse and Search Items Screen">
+          </div>
+          <div class="diagram-footer">
+            Table view displaying public item attributes with search bar and filter dropdowns. The private clue is strictly hidden.
+          </div>
+        </div>
+
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Tab 2: Report Lost or Found Item</h4>
+          </div>
+          <div class="diagram-body">
+            <img src="../proposal/screenshots/ui-report.svg" alt="Report Lost or Found Item Screen">
+          </div>
+          <div class="diagram-footer">
+            Intake form featuring the highlighted confidential Private Clue section (enabled only for FOUND reports).
+          </div>
+        </div>
+
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Tab 3: Submit Ownership Claim</h4>
+          </div>
+          <div class="diagram-body">
+            <img src="../proposal/screenshots/ui-claim.svg" alt="Submit Ownership Claim Screen">
+          </div>
+          <div class="diagram-footer">
+            Claim filing form with target item ID lookup, status validation banner, and secret ownership proof input box.
+          </div>
+        </div>
+
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Tab 4: Staff Review &amp; Verification (Demo Admin)</h4>
+          </div>
+          <div class="diagram-body">
+            <img src="../proposal/screenshots/ui-review.svg" alt="Review Claims Admin Screen">
+          </div>
+          <div class="diagram-footer">
+            Side-by-side comparison box showing founder's clue vs. claimant answer, with Accept and Reject decision buttons.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. UML & SOFTWARE DIAGRAMS GALLERY -->
+    <section id="diagrams">
+      <h2 class="section-title">4. Software Engineering &amp; UML Diagrams</h2>
+      <p class="section-subtitle">All six required design models representing system flows, use cases, activities, data structures, and classes.</p>
+
+      <div class="grid-2">
+        <!-- DFD Level 0 -->
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Data Flow Diagram (DFD) — Level 0 Context</h4>
+          </div>
+          <div class="diagram-body">
+            <img src="../proposal/diagrams/dfd-context.svg" alt="Context Data Flow Diagram">
+          </div>
+          <div class="diagram-footer">
+            External entities (Campus User, Campus Administrator) and system-boundary data flows.
+          </div>
+        </div>
+
+        <!-- DFD Level 1 -->
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Data Flow Diagram (DFD) — Level 1 Decomposition</h4>
+          </div>
+          <div class="diagram-body">
+            <img src="../proposal/diagrams/dfd-level1.svg" alt="Level 1 Data Flow Diagram">
+          </div>
+          <div class="diagram-footer">
+            Internal sub-processes (1.0 to 5.0) and isolated data flows into Items Store (D1) and Claims Store (D2).
+          </div>
+        </div>
+
+        <!-- Use Case Diagram -->
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Use Case Diagram</h4>
+          </div>
+          <div class="diagram-body">
+            <img src="../proposal/diagrams/use-case.svg" alt="Use Case Diagram">
+          </div>
+          <div class="diagram-footer">
+            Actors, system boundaries, core use cases, and &lt;&lt;include&gt;&gt; / &lt;&lt;extend&gt;&gt; dependencies.
+          </div>
+        </div>
+
+        <!-- Activity Diagram -->
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Activity Diagram (Swimlanes)</h4>
+          </div>
+          <div class="diagram-body">
+            <img src="../proposal/diagrams/activity.svg" alt="Activity Diagram">
+          </div>
+          <div class="diagram-footer">
+            End-to-end claim filing, input validation, clue comparison, approval, auto-rejection, and handover pathways.
+          </div>
+        </div>
+
+        <!-- ERD -->
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>Entity Relationship Diagram (ERD)</h4>
+          </div>
+          <div class="diagram-body">
+            <img src="../proposal/diagrams/erd.svg" alt="Entity Relationship Diagram">
+          </div>
+          <div class="diagram-footer">
+            Logical data model illustrating the 1-to-Many relationship between ITEM and CLAIM entities.
+          </div>
+        </div>
+
+        <!-- Class Diagram -->
+        <div class="diagram-card">
+          <div class="diagram-header">
+            <h4>UML Class Diagram (7 Source Classes)</h4>
+          </div>
+          <div class="diagram-body">
+            <img src="../proposal/diagrams/class-diagram.svg" alt="Class Diagram">
+          </div>
+          <div class="diagram-footer">
+            Class structure matching the Java codebase: <code>Main</code>, <code>MainFrame</code>, <code>Item</code>, <code>Claim</code>, <code>RecoveryService</code>, <code>FileStorage</code>, <code>ItemTableModel</code>.
+          </div>
+        </div>
+
+        <!-- Object Diagram -->
+        <div class="diagram-card" style="grid-column: 1 / -1;">
+          <div class="diagram-header">
+            <h4>UML Object Diagram (Runtime Instance Snapshot)</h4>
+          </div>
+          <div class="diagram-body">
+            <img src="../proposal/diagrams/object-diagram.svg" alt="Object Diagram">
+          </div>
+          <div class="diagram-footer">
+            Concrete instance values demonstrating how <code>claim1</code> corroborates <code>backpack</code> private clue details.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. VERIFICATION & QUALITY ASSURANCE -->
+    <section id="qa">
+      <h2 class="section-title">5. Quality Assurance &amp; Automated Verification</h2>
+      <p class="section-subtitle">Headless automated test runner verifying 100% of business logic, security constraints, and persistence.</p>
+
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Test ID</th>
+            <th>Test Case Description</th>
+            <th>Target Module</th>
+            <th>Result Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>TC-01</strong></td>
+            <td>Automatic Demo Data Seeding on Empty Storage</td>
+            <td><code>FileStorage.java</code></td>
+            <td><span class="status-pass">PASS (Automated)</span></td>
+          </tr>
+          <tr>
+            <td><strong>TC-02</strong></td>
+            <td>Record Lost Item with Valid Attributes</td>
+            <td><code>RecoveryService.java</code></td>
+            <td><span class="status-pass">PASS (Automated)</span></td>
+          </tr>
+          <tr>
+            <td><strong>TC-03</strong></td>
+            <td>Record Found Item with Confidential Private Clue</td>
+            <td><code>RecoveryService.java</code></td>
+            <td><span class="status-pass">PASS (Automated)</span></td>
+          </tr>
+          <tr>
+            <td><strong>TC-04</strong></td>
+            <td>Information Hiding Verification (Private Clue Hidden in TableModel)</td>
+            <td><code>ItemTableModel.java</code></td>
+            <td><span class="status-pass">PASS (Automated)</span></td>
+          </tr>
+          <tr>
+            <td><strong>TC-05</strong></td>
+            <td>Multi-Criteria Search &amp; Filter (Keyword, Category, Type, Status)</td>
+            <td><code>RecoveryService.java</code></td>
+            <td><span class="status-pass">PASS (Automated)</span></td>
+          </tr>
+          <tr>
+            <td><strong>TC-06</strong></td>
+            <td>Submit Valid Ownership Claim for Found Item</td>
+            <td><code>RecoveryService.java</code></td>
+            <td><span class="status-pass">PASS (Automated)</span></td>
+          </tr>
+          <tr>
+            <td><strong>TC-07</strong></td>
+            <td>Validation Interception (Reject Incomplete Fields or Invalid Item ID)</td>
+            <td><code>RecoveryService.java</code></td>
+            <td><span class="status-pass">PASS (Automated)</span></td>
+          </tr>
+          <tr>
+            <td><strong>TC-08</strong></td>
+            <td>Review and Reject Claim with Explanation Remarks</td>
+            <td><code>RecoveryService.java</code></td>
+            <td><span class="status-pass">PASS (Automated)</span></td>
+          </tr>
+          <tr>
+            <td><strong>TC-09</strong></td>
+            <td>Review and Accept Claim (Auto-Resolve Item &amp; Auto-Reject Competing Claims)</td>
+            <td><code>RecoveryService.java</code></td>
+            <td><span class="status-pass">PASS (Automated)</span></td>
+          </tr>
+          <tr>
+            <td><strong>TC-10</strong></td>
+            <td>Local CSV File Storage &amp; Instance Reload Data Integrity</td>
+            <td><code>FileStorage.java</code></td>
+            <td><span class="status-pass">PASS (Automated)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 6. QUICK START & RUN INSTRUCTIONS -->
+    <section id="run">
+      <h2 class="section-title">6. How to Compile &amp; Run the Prototype</h2>
+      <p class="section-subtitle">Follow these standard commands in any terminal with JDK 8+ installed.</p>
+
+      <div class="card">
+        <h3>Step 1: Compile All Java Classes</h3>
+        <pre class="code-box">javac -d bin src/campusfind/*.java</pre>
+
+        <h3>Step 2: Run the Desktop GUI Application</h3>
+        <pre class="code-box">java -cp bin campusfind.Main</pre>
+
+        <h3>Step 3: Run the Automated Verification Test Suite</h3>
+        <pre class="code-box">java -cp bin campusfind.CampusFindTestRunner</pre>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 style="color: #FFFFFF; margin-bottom: 12px;">CampusFind Capstone</h3>
+          <p>
+            Academic Software Engineering Capstone Project (Part I).<br>
+            Designed with beginner-friendly Java fundamentals, explicit UML specifications, 
+            and automated quality assurance.
+          </p>
+        </div>
+        <div>
+          <h4 style="color: #FFFFFF; margin-bottom: 12px;">Documentation</h4>
+          <ul style="list-style: none; line-height: 2;">
+            <li><a href="../proposal/proposal.md">Full Proposal (Markdown)</a></li>
+            <li><a href="../proposal/proposal.tex">LaTeX Source (.tex)</a></li>
+            <li><a href="../docs/test-plan.md">QA Test Plan</a></li>
+            <li><a href="../docs/gantt-chart.md">Gantt Chart &amp; Milestones</a></li>
+            <li><a href="../docs/viva-presentation-guide.md">Viva Defense Guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color: #FFFFFF; margin-bottom: 12px;">Repository Links</h4>
+          <ul style="list-style: none; line-height: 2;">
+            <li><a href="https://github.com/antor1112225/campusfind-java-se-capstone" target="_blank" rel="noopener">GitHub Project Repo ↗</a></li>
+            <li><a href="https://github.com/antor1112225/campusfind-java-se-capstone/tree/main/src/campusfind" target="_blank" rel="noopener">Browse Java Source ↗</a></li>
+            <li><a href="https://github.com/antor1112225/campusfind-java-se-capstone/tree/main/proposal/diagrams" target="_blank" rel="noopener">Diagram Source Files ↗</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 CampusFind Software Engineering Project. Academic Submission for Part I Capstone.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
