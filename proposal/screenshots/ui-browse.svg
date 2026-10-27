@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 620" width="100%" height="100%">
+  <defs>
+    <filter id="win-shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="3" dy="4" stdDeviation="5" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Desktop Backdrop -->
+  <rect width="100%" height="100%" fill="#E2E8F0" />
+
+  <!-- Swing Window Frame -->
+  <g transform="translate(30, 25)" filter="url(#win-shadow)">
+    <!-- Window Border -->
+    <rect width="860" height="570" rx="8" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5" />
+
+    <!-- OS Window Title Bar -->
+    <path d="M 0 8 Q 0 0 8 0 L 852 0 Q 860 0 860 8 L 860 32 L 0 32 Z" fill="#1E293B" />
+    <text x="20" y="21" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" fill="#F8FAFC">
+      CampusFind — Campus Lost-and-Found System with Private Claim Verification
+    </text>
+    <!-- Window buttons (Minimize, Maximize, Close) -->
+    <circle cx="800" cy="16" r="6" fill="#FBBF24" />
+    <circle cx="820" cy="16" r="6" fill="#34D399" />
+    <circle cx="840" cy="16" r="6" fill="#F87171" />
+
+    <!-- Top Banner -->
+    <rect x="0" y="32" width="860" height="55" fill="#182B49" />
+    <text x="20" y="58" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF">
+      CampusFind — University Lost &amp; Found
+    </text>
+    <text x="20" y="76" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#93C5FD">
+      Prototype v1.0 | Two-Party Private Clue Verification
+    </text>
+    <text x="840" y="65" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#FDE047" text-anchor="end">
+      Total Items: 4 | Open Found: 3 | Pending Claims: 1
+    </text>
+
+    <!-- Swing Tabs -->
+    <g transform="translate(10, 95)">
+      <!-- Tab 1: Active -->
+      <path d="M 0 5 Q 0 0 5 0 L 175 0 Q 180 0 180 5 L 180 30 L 0 30 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1" />
+      <text x="90" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" fill="#0284C7" text-anchor="middle">
+        1. Browse &amp; Search Items
+      </text>
+
+      <!-- Tab 2: Inactive -->
+      <path d="M 182 5 Q 182 0 187 0 L 357 0 Q 362 0 362 5 L 362 30 L 182 30 Z" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1" />
+      <text x="272" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#475569" text-anchor="middle">
+        2. Report Lost / Found Item
+      </text>
+
+      <!-- Tab 3: Inactive -->
+      <path d="M 364 5 Q 364 0 369 0 L 499 0 Q 504 0 504 5 L 504 30 L 364 30 Z" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1" />
+      <text x="434" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#475569" text-anchor="middle">
+        3. Submit Claim
+      </text>
+
+      <!-- Tab 4: Inactive -->
+      <path d="M 506 5 Q 506 0 511 0 L 696 0 Q 701 0 701 5 L 701 30 L 506 30 Z" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1" />
+      <text x="603" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" fill="#475569" text-anchor="middle">
+        4. Review Claims (Demo Admin)
+      </text>
+    </g>
+
+    <!-- Tab 1 Body Content -->
+    <rect x="10" y="125" width="840" height="415" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1" />
+
+    <!-- Filter Bar (Search Controls) -->
+    <g transform="translate(20, 135)">
+      <rect width="820" height="42" rx="4" fill="#F8FAFC" stroke="#E2E8F0" />
+      <text x="15" y="26" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#334155">Keyword:</text>
+      <rect x="75" y="11" width="110" height="22" rx="3" fill="#FFFFFF" stroke="#CBD5E1" />
+      <text x="82" y="26" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#94A3B8">Search text...</text>
+    </g>
+
+    <!-- Table Header -->
+    <g transform="translate(20, 185)">
+      <rect width="820" height="26" fill="#F1F5F9" stroke="#CBD5E1" />
+      <g font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#1E293B">
+        <text x="10" y="18">Item ID</text>
+        <text x="75" y="18">Type</text>
+        <text x="130" y="18">Title</text>
+        <text x="310" y="18">Category</text>
+        <text x="390" y="18">Location</text>
+        <text x="540" y="18">Date</text>
+        <text x="630" y="18">Contact</text>
+        <text x="760" y="18">Status</text>
+      </g>
+    </g>
+
+    <!-- Table Rows -->
+    <g transform="translate(20, 211)">
+      <rect width="820" height="24" fill="#DBEAFE" stroke="#BFDBFE" />
+      <g font-family="'Segoe UI', Arial, sans-serif" font-size="10.5">
+        <text x="10" y="16" font-weight="bold" fill="#1E3A8A">ITM-101</text>
+        <text x="75" y="16" font-weight="bold" fill="#15803D">FOUND</text>
+        <text x="130" y="16" font-weight="bold" fill="#0F172A">Blue Dell Laptop Backpack</text>
+        <text x="310" y="16" fill="#475569">Bags</text>
+        <text x="390" y="16" fill="#475569">Campus Library 2nd Floor</text>
+        <text x="540" y="16" fill="#475569">2026-10-25</text>
+        <text x="630" y="16" fill="#475569">library-desk@campus.edu</text>
+        <text x="760" y="16" font-weight="bold" fill="#166534">OPEN</text>
+      </g>
+    </g>
+
+    <g transform="translate(20, 235)">
+      <rect width="820" height="24" fill="#FFFFFF" stroke="#F1F5F9" />
+      <g font-family="'Segoe UI', Arial, sans-serif" font-size="10.5">
+        <text x="10" y="16" fill="#0F172A">ITM-102</text>
+        <text x="75" y="16" font-weight="bold" fill="#15803D">FOUND</text>
+        <text x="130" y="16" fill="#0F172A">Casio fx-991EX Scientific Calculator</text>
+        <text x="310" y="16" fill="#475569">Electronics</text>
+        <text x="390" y="16" fill="#475569">Science Building Lab 302</text>
+        <text x="540" y="16" fill="#475569">2026-10-26</text>
+        <text x="630" y="16" fill="#475569">sec-lab302@campus.edu</text>
+        <text x="760" y="16" font-weight="bold" fill="#166534">OPEN</text>
+      </g>
+    </g>
+
+    <!-- Selected Item Details Box -->
+    <g transform="translate(20, 320)">
+      <rect width="820" height="110" rx="4" fill="#F8FAFC" stroke="#CBD5E1" />
+      <text x="12" y="18" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#334155">
+        Selected Item Public Details (Private Clue Hidden from Public Browsing):
+      </text>
+      <g font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#1E293B">
+        <text x="15" y="38">ID: ITM-101 | Type: FOUND | Title: Blue Dell Laptop Backpack | Status: OPEN</text>
+        <text x="15" y="56">Category: Bags | Location: Campus Library 2nd Floor | Date Reported: 2026-10-25</text>
+        <text x="15" y="74">Contact: library-desk@campus.edu</text>
+        <text x="15" y="92">Public Description: Dark blue backpack found on 2nd floor library near table 4</text>
+      </g>
+      <rect x="580" y="45" width="225" height="38" rx="4" fill="#0284C7" />
+      <text x="692" y="68" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+        Claim Selected Found Item &gt;&gt;
+      </text>
+    </g>
+
+    <!-- Swing Bottom Status Bar -->
+    <rect x="0" y="540" width="860" height="30" fill="#F1F5F9" stroke="#E2E8F0" />
+    <text x="15" y="559" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#475569">
+      Ready. 4 items loaded from data/items.csv. | Search completed. Showing 4 items. [2026-10-28]
+    </text>
+  </g>
+</svg>

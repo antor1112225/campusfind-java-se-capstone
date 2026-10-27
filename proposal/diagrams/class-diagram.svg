@@ -1,0 +1,246 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 940" width="100%" height="100%">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#1F4E79" />
+    </marker>
+    <marker id="diamond" viewBox="0 0 16 10" refX="16" refY="5" markerWidth="10" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0,5 8,1 16,5 8,9" fill="#1F4E79" stroke="#1F4E79" />
+    </marker>
+    <marker id="diamond-open" viewBox="0 0 16 10" refX="16" refY="5" markerWidth="10" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0,5 8,1 16,5 8,9" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.5" />
+    </marker>
+    <marker id="generalization" viewBox="0 0 12 12" refX="12" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <polygon points="0,1 12,6 0,11" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.5" />
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2.5" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#F8FAFC" />
+
+  <!-- Header -->
+  <text x="575" y="30" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="bold" fill="#0F172A" text-anchor="middle">
+    UML Class Diagram — CampusFind System
+  </text>
+  <text x="575" y="50" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#64748B" text-anchor="middle">
+    Seven Verified Java Classes: Model, Service, Storage, and Presentation Layers
+  </text>
+
+  <!-- 1. Main (Top Left) -->
+  <g transform="translate(40, 70)" filter="url(#shadow)">
+    <rect width="210" height="90" rx="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.8" />
+    <path d="M 0 6 Q 0 0 6 0 L 204 0 Q 210 0 210 6 L 210 26 L 0 26 Z" fill="#D9E1F2" />
+    <text x="105" y="18" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold" fill="#1F4E79" text-anchor="middle">Main</text>
+    <line x1="0" y1="26" x2="210" y2="26" stroke="#1F4E79" stroke-width="1" />
+    <text x="10" y="44" font-family="'Courier New', monospace" font-size="10.5" fill="#64748B">// Entry Point</text>
+    <line x1="0" y1="52" x2="210" y2="52" stroke="#E2E8F0" stroke-width="1" />
+    <text x="10" y="72" font-family="'Courier New', monospace" font-size="11" fill="#0F172A">+ main(args: String[]) : void</text>
+  </g>
+
+  <!-- 2. MainFrame (Center Left) -->
+  <g transform="translate(40, 200)" filter="url(#shadow)">
+    <rect width="290" height="280" rx="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.8" />
+    <path d="M 0 6 Q 0 0 6 0 L 284 0 Q 290 0 290 6 L 290 28 L 0 28 Z" fill="#D9E1F2" />
+    <text x="145" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold" fill="#1F4E79" text-anchor="middle">MainFrame (extends JFrame)</text>
+    <line x1="0" y1="28" x2="290" y2="28" stroke="#1F4E79" stroke-width="1" />
+    <!-- Attributes -->
+    <g font-family="'Courier New', monospace" font-size="10.5" fill="#334155">
+      <text x="10" y="48">- recoveryService : RecoveryService</text>
+      <text x="10" y="66">- itemTableModel : ItemTableModel</text>
+      <text x="10" y="84">- tabbedPane : JTabbedPane</text>
+      <text x="10" y="102">- itemTable : JTable</text>
+      <text x="10" y="120">- claimTable : JTable</text>
+    </g>
+    <line x1="0" y1="130" x2="290" y2="130" stroke="#1F4E79" stroke-width="1" />
+    <!-- Methods -->
+    <g font-family="'Courier New', monospace" font-size="10.5" fill="#0F172A">
+      <text x="10" y="150">+ MainFrame(service: RecoveryService)</text>
+      <text x="10" y="170">- initUI() : void</text>
+      <text x="10" y="190">- createBrowsePanel() : JPanel</text>
+      <text x="10" y="210">- createReportPanel() : JPanel</text>
+      <text x="10" y="230">- createClaimPanel() : JPanel</text>
+      <text x="10" y="250">- createReviewPanel() : JPanel</text>
+      <text x="10" y="270">+ refreshAllData() : void</text>
+    </g>
+  </g>
+
+  <!-- 3. ItemTableModel (Bottom Left) -->
+  <g transform="translate(40, 520)" filter="url(#shadow)">
+    <rect width="290" height="230" rx="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.8" />
+    <path d="M 0 6 Q 0 0 6 0 L 284 0 Q 290 0 290 6 L 290 28 L 0 28 Z" fill="#D9E1F2" />
+    <text x="145" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold" fill="#1F4E79" text-anchor="middle">ItemTableModel</text>
+    <line x1="0" y1="28" x2="290" y2="28" stroke="#1F4E79" stroke-width="1" />
+    <!-- Attributes -->
+    <g font-family="'Courier New', monospace" font-size="10.5" fill="#334155">
+      <text x="10" y="48">- columnNames : String[]</text>
+      <text x="10" y="66">- items : List&lt;Item&gt;</text>
+    </g>
+    <line x1="0" y1="76" x2="290" y2="76" stroke="#1F4E79" stroke-width="1" />
+    <!-- Methods -->
+    <g font-family="'Courier New', monospace" font-size="10.5" fill="#0F172A">
+      <text x="10" y="96">+ ItemTableModel(items: List&lt;Item&gt;)</text>
+      <text x="10" y="116">+ setItems(items: List&lt;Item&gt;) : void</text>
+      <text x="10" y="136">+ getItemAt(row: int) : Item</text>
+      <text x="10" y="156">+ getRowCount() : int</text>
+      <text x="10" y="176">+ getColumnCount() : int</text>
+      <text x="10" y="196">+ getValueAt(row: int, col: int) : Object</text>
+      <text x="10" y="216">+ isCellEditable(r: int, c: int) : boolean</text>
+    </g>
+  </g>
+
+  <!-- 4. RecoveryService (Center) -->
+  <g transform="translate(380, 160)" filter="url(#shadow)">
+    <rect width="360" height="340" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2" />
+    <path d="M 0 6 Q 0 0 6 0 L 354 0 Q 360 0 360 6 L 360 28 L 0 28 Z" fill="#0284C7" />
+    <text x="180" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">RecoveryService (Business Logic)</text>
+    <line x1="0" y1="28" x2="360" y2="28" stroke="#0284C7" stroke-width="1" />
+    <!-- Attributes -->
+    <g font-family="'Courier New', monospace" font-size="11" fill="#334155">
+      <text x="10" y="48">- storage : FileStorage</text>
+      <text x="10" y="66">- items : List&lt;Item&gt;</text>
+      <text x="10" y="84">- claims : List&lt;Claim&gt;</text>
+    </g>
+    <line x1="0" y1="94" x2="360" y2="94" stroke="#0284C7" stroke-width="1" />
+    <!-- Methods -->
+    <g font-family="'Courier New', monospace" font-size="10.5" fill="#0F172A">
+      <text x="10" y="114">+ getAllItems() : List&lt;Item&gt;</text>
+      <text x="10" y="132">+ getItemById(itemId: String) : Item</text>
+      <text x="10" y="150">+ addItem(item: Item) : boolean</text>
+      <text x="10" y="168">+ searchItems(kw, cat, st, tp) : List&lt;Item&gt;</text>
+      <text x="10" y="186">+ markItemResolved(itemId: String) : boolean</text>
+      <text x="10" y="204">+ generateNextItemId() : String</text>
+      <text x="10" y="222">+ getAllClaims() : List&lt;Claim&gt;</text>
+      <text x="10" y="240">+ getClaimById(claimId: String) : Claim</text>
+      <text x="10" y="258">+ submitClaim(claim: Claim) : boolean</text>
+      <text x="10" y="276">+ reviewClaim(id, accept, notes) : boolean</text>
+      <text x="10" y="294">+ validateItem(item: Item) : String</text>
+      <text x="10" y="312">+ validateClaim(claim: Claim) : String</text>
+      <text x="10" y="330">+ reload() : void</text>
+    </g>
+  </g>
+
+  <!-- 5. FileStorage (Center Bottom) -->
+  <g transform="translate(380, 550)" filter="url(#shadow)">
+    <rect width="360" height="230" rx="6" fill="#FFFFFF" stroke="#16A34A" stroke-width="2" />
+    <path d="M 0 6 Q 0 0 6 0 L 354 0 Q 360 0 360 6 L 360 28 L 0 28 Z" fill="#16A34A" />
+    <text x="180" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">FileStorage (Persistence)</text>
+    <line x1="0" y1="28" x2="360" y2="28" stroke="#16A34A" stroke-width="1" />
+    <!-- Attributes -->
+    <g font-family="'Courier New', monospace" font-size="11" fill="#334155">
+      <text x="10" y="48">- dataDirectory : String</text>
+      <text x="10" y="66">- itemsFilePath : String</text>
+      <text x="10" y="84">- claimsFilePath : String</text>
+    </g>
+    <line x1="0" y1="94" x2="360" y2="94" stroke="#16A34A" stroke-width="1" />
+    <!-- Methods -->
+    <g font-family="'Courier New', monospace" font-size="10.5" fill="#0F172A">
+      <text x="10" y="114">+ loadItems() : List&lt;Item&gt;</text>
+      <text x="10" y="132">+ saveItems(items: List&lt;Item&gt;) : boolean</text>
+      <text x="10" y="150">+ loadClaims() : List&lt;Claim&gt;</text>
+      <text x="10" y="168">+ saveClaims(claims: List&lt;Claim&gt;) : boolean</text>
+      <text x="10" y="186">- createInitialDemoItems() : List&lt;Item&gt;</text>
+      <text x="10" y="204">- escapeCsv(val: String) : String</text>
+      <text x="10" y="222">- parseCsvLine(line: String) : List&lt;String&gt;</text>
+    </g>
+  </g>
+
+  <!-- 6. Item (Top Right) -->
+  <g transform="translate(790, 70)" filter="url(#shadow)">
+    <rect width="320" height="380" rx="6" fill="#FFFFFF" stroke="#0284C7" stroke-width="2" />
+    <path d="M 0 6 Q 0 0 6 0 L 314 0 Q 320 0 320 6 L 320 28 L 0 28 Z" fill="#0284C7" />
+    <text x="160" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Item (Model)</text>
+    <line x1="0" y1="28" x2="320" y2="28" stroke="#0284C7" stroke-width="1" />
+    <!-- Attributes -->
+    <g font-family="'Courier New', monospace" font-size="10.5" fill="#334155">
+      <text x="10" y="48">- itemId : String</text>
+      <text x="10" y="66">- itemType : String</text>
+      <text x="10" y="84">- title : String</text>
+      <text x="10" y="102">- category : String</text>
+      <text x="10" y="120">- publicDescription : String</text>
+      <text x="10" y="138">- location : String</text>
+      <text x="10" y="156">- reportDate : String</text>
+      <text x="10" y="174">- contactInfo : String</text>
+      <text x="10" y="192" font-weight="bold" fill="#B45309">- privateClue : String [Confidential]</text>
+      <text x="10" y="210">- itemStatus : String</text>
+    </g>
+    <line x1="0" y1="220" x2="320" y2="220" stroke="#0284C7" stroke-width="1" />
+    <!-- Methods -->
+    <g font-family="'Courier New', monospace" font-size="10.5" fill="#0F172A">
+      <text x="10" y="240">+ Item(id, type, title, cat, ...)</text>
+      <text x="10" y="258">+ getItemId() / setItemId()</text>
+      <text x="10" y="276">+ getTitle() / setTitle()</text>
+      <text x="10" y="294">+ getPrivateClue() / setPrivateClue()</text>
+      <text x="10" y="312">+ getItemStatus() / setItemStatus()</text>
+      <text x="10" y="330">+ isFound() : boolean</text>
+      <text x="10" y="348">+ isLost() : boolean</text>
+      <text x="10" y="366">+ isResolved() : boolean</text>
+    </g>
+  </g>
+
+  <!-- 7. Claim (Bottom Right) -->
+  <g transform="translate(790, 480)" filter="url(#shadow)">
+    <rect width="320" height="340" rx="6" fill="#FFFFFF" stroke="#EA580C" stroke-width="2" />
+    <path d="M 0 6 Q 0 0 6 0 L 314 0 Q 320 0 320 6 L 320 28 L 0 28 Z" fill="#EA580C" />
+    <text x="160" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Claim (Model)</text>
+    <line x1="0" y1="28" x2="320" y2="28" stroke="#EA580C" stroke-width="1" />
+    <!-- Attributes -->
+    <g font-family="'Courier New', monospace" font-size="10.5" fill="#334155">
+      <text x="10" y="48">- claimId : String</text>
+      <text x="10" y="66">- itemId : String (references Item)</text>
+      <text x="10" y="84">- claimantName : String</text>
+      <text x="10" y="102">- claimantContact : String</text>
+      <text x="10" y="120" font-weight="bold" fill="#B45309">- ownershipAnswer : String [Proof]</text>
+      <text x="10" y="138">- claimStatus : String</text>
+      <text x="10" y="156">- submissionDate : String</text>
+      <text x="10" y="174">- reviewNotes : String</text>
+    </g>
+    <line x1="0" y1="184" x2="320" y2="184" stroke="#EA580C" stroke-width="1" />
+    <!-- Methods -->
+    <g font-family="'Courier New', monospace" font-size="10.5" fill="#0F172A">
+      <text x="10" y="204">+ Claim(id, itemId, name, ...)</text>
+      <text x="10" y="222">+ getClaimId() / getTargetItemId()</text>
+      <text x="10" y="240">+ getOwnershipAnswer()</text>
+      <text x="10" y="258">+ getClaimStatus() / setClaimStatus()</text>
+      <text x="10" y="276">+ getReviewNotes() / setReviewNotes()</text>
+      <text x="10" y="294">+ isPending() : boolean</text>
+      <text x="10" y="312">+ isAccepted() : boolean</text>
+      <text x="10" y="330">+ isRejected() : boolean</text>
+    </g>
+  </g>
+
+  <!-- Connectors -->
+  <!-- Main -> MainFrame (dashed dependency) -->
+  <line x1="145" y1="160" x2="145" y2="200" stroke="#1F4E79" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrow)" />
+  <text x="150" y="185" font-family="'Segoe UI', Arial, sans-serif" font-size="9" fill="#1F4E79">&lt;&lt;creates&gt;&gt;</text>
+
+  <!-- MainFrame -> RecoveryService (aggregation) -->
+  <line x1="330" y1="280" x2="380" y2="280" stroke="#1F4E79" stroke-width="1.8" marker-start="url(#diamond-open)" />
+
+  <!-- MainFrame -> ItemTableModel (aggregation) -->
+  <line x1="185" y1="480" x2="185" y2="520" stroke="#1F4E79" stroke-width="1.8" marker-start="url(#diamond-open)" />
+
+  <!-- RecoveryService -> FileStorage (aggregation) -->
+  <line x1="560" y1="500" x2="560" y2="550" stroke="#1F4E79" stroke-width="1.8" marker-start="url(#diamond-open)" />
+
+  <!-- RecoveryService -> Item (1 to *) (composition) -->
+  <line x1="740" y1="250" x2="790" y2="250" stroke="#1F4E79" stroke-width="1.8" marker-start="url(#diamond)" />
+  <text x="760" y="240" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="bold" fill="#1F4E79">1..*</text>
+
+  <!-- RecoveryService -> Claim (1 to *) (composition) -->
+  <line x1="740" y1="420" x2="790" y2="550" stroke="#1F4E79" stroke-width="1.8" marker-start="url(#diamond)" />
+  <text x="765" y="470" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="bold" fill="#1F4E79">0..*</text>
+
+  <!-- ItemTableModel -> Item (aggregation/uses) -->
+  <path d="M 330 635 C 720 635, 740 460, 790 380" fill="none" stroke="#1F4E79" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow)" />
+  <text x="735" y="430" font-family="'Segoe UI', Arial, sans-serif" font-size="9" font-weight="bold" fill="#1F4E79">public view</text>
+
+  <!-- Bottom Legend / Note -->
+  <rect x="180" y="860" width="790" height="44" rx="6" fill="#F1F5F9" stroke="#E2E8F0" />
+  <text x="575" y="878" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#334155" text-anchor="middle">
+    All 7 classes shown are physically implemented in the Java source repository under src/campusfind/
+  </text>
+  <text x="575" y="894" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5" fill="#64748B" text-anchor="middle">
+    Class names, method signatures, access modifiers, and attribute definitions are identical across diagrams and code.
+  </text>
+</svg>

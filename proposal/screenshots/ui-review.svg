@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 620" width="100%" height="100%">
+  <defs>
+    <filter id="win-shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="3" dy="4" stdDeviation="5" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#E2E8F0" />
+
+  <!-- Swing Window Frame -->
+  <g transform="translate(30, 25)" filter="url(#win-shadow)">
+    <rect width="860" height="570" rx="8" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5" />
+
+    <!-- OS Window Title Bar -->
+    <path d="M 0 8 Q 0 0 8 0 L 852 0 Q 860 0 860 8 L 860 32 L 0 32 Z" fill="#1E293B" />
+    <text x="20" y="21" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" fill="#F8FAFC">
+      CampusFind — Campus Lost-and-Found System with Private Claim Verification
+    </text>
+
+    <!-- Tab 4: Active -->
+    <g transform="translate(10, 95)">
+      <path d="M 506 5 Q 506 0 511 0 L 696 0 Q 701 0 701 5 L 701 30 L 506 30 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1" />
+      <text x="603" y="20" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" fill="#C2410C" text-anchor="middle">
+        4. Review Claims (Demo Admin)
+      </text>
+    </g>
+
+    <!-- Tab 4 Body Content -->
+    <rect x="10" y="125" width="840" height="415" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1" />
+
+    <!-- Demo Notice Header -->
+    <g transform="translate(20, 133)">
+      <rect width="820" height="28" rx="4" fill="#FEF3C7" stroke="#FCD34D" />
+      <text x="12" y="19" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#92400E">
+        DEMONSTRATION ADMIN PANEL: In production, access is restricted to verified campus staff via RBAC.
+      </text>
+    </g>
+
+    <!-- Side-by-Side Comparison Box -->
+    <g transform="translate(20, 245)">
+      <rect width="820" height="235" rx="6" fill="#F8FAFC" stroke="#CBD5E1" />
+      <text x="15" y="22" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" fill="#0F172A">
+        Reviewing Claim [CLM-501] for Item [ITM-101] Blue Dell Laptop Backpack | Status: PENDING
+      </text>
+
+      <!-- Left Box: Founder's Confidential Clue -->
+      <g transform="translate(15, 35)">
+        <rect width="385" height="110" rx="4" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.2" />
+        <rect width="385" height="24" rx="4" fill="#E0F2FE" />
+        <text x="12" y="17" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#0369A1">
+          1. Founder's Confidential Clue (Recorded at Report)
+        </text>
+        <g font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#0F172A">
+          <text x="15" y="48">"Contains a silver 16GB flash drive</text>
+          <text x="15" y="68">with an anime sticker and blue hydroflask"</text>
+        </g>
+      </g>
+
+      <!-- Right Box: Claimant's Submitted Answer -->
+      <g transform="translate(420, 35)">
+        <rect width="385" height="110" rx="4" fill="#FFFFFF" stroke="#D97706" stroke-width="1.2" />
+        <rect width="385" height="24" rx="4" fill="#FEF3C7" />
+        <text x="12" y="17" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#78350F">
+          2. Claimant's Submitted Answer (Alex Rivera)
+        </text>
+        <g font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#0F172A">
+          <text x="15" y="48">"My backpack has my silver 16GB USB drive</text>
+          <text x="15" y="68">with an anime sticker and blue hydroflask inside."</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Swing Bottom Status Bar -->
+    <rect x="0" y="540" width="860" height="30" fill="#F1F5F9" stroke="#E2E8F0" />
+    <text x="15" y="559" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#475569">
+      Selected Claim CLM-501 ready for administrative evaluation.
+    </text>
+  </g>
+</svg>
