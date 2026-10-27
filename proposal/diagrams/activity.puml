@@ -1,0 +1,52 @@
+@startuml
+title CampusFind System - Claim Submission & Verification Activity Diagram
+
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam roundCorner 8
+skinparam ArrowColor #1F4E79
+skinparam ActivityBackgroundColor #F0F9FF
+skinparam ActivityBorderColor #0284C7
+skinparam DiamondBackgroundColor #FEF3C7
+skinparam DiamondBorderColor #D97706
+
+start
+
+:Browse Public Item Catalog;
+:Select Target Found Item;
+:Open Ownership Claim Form;
+
+repeat
+  :Enter Name, Contact, & Secret Clue Details;
+  :Submit Claim to RecoveryService;
+  backward:Display Validation Error Alert;
+repeat while (Are required fields present and valid?) is (No - Incomplete)
+->Yes - Valid;
+
+:System Assigns Claim ID & Status "PENDING";
+:Save Claim Record to File Storage;
+:Claim Appears in Admin Verification Queue;
+
+|Campus Administrator / Reviewer|
+:Open Claim Review Interface;
+:Select Pending Claim;
+:System Displays Founder's Private Clue\nSide-by-Side with Claimant's Proof;
+:Examine and Compare Identifying Details;
+
+if (Does Claimant Proof Match Founder's Private Clue?) then (Yes - Verified Match)
+  :Enter Approval Remarks;
+  :Mark Claim as "ACCEPTED";
+  :Update Item Status to "RESOLVED";
+  :Auto-Reject Competing Claims for this Item;
+  :Save Changes to File Storage;
+  :Item Authorized for Campus Handover;
+  stop
+else (No - Mismatch / Suspicious)
+  :Enter Rejection Reason;
+  :Mark Claim as "REJECTED";
+  :Save Changes to File Storage;
+  :Item Remains "OPEN" for Genuine Claimant;
+  stop
+endif
+
+@enduml

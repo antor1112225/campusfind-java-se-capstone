@@ -1,0 +1,20 @@
+@startuml
+title CampusFind System - Context Data Flow Diagram (Level 0)
+
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam roundCorner 8
+skinparam ArrowColor #1F4E79
+skinparam ArrowThickness 1.5
+
+rectangle "Campus User\n(Student / Faculty / Staff)" as User #D9E1F2
+rectangle "Campus Administrator\n/ Reviewer" as Admin #FCE4D6
+circle "0.0\nCampusFind System" as System #BDD7EE
+
+User -down-> System : [DF1] Lost / Found Item Details\n[DF2] Ownership Claim & Secret Clue\n[DF3] Search & Filter Criteria
+System -up-> User : [DF4] Public Item Listings (Clues Hidden)\n[DF5] Submission Receipts & Status Updates
+
+Admin -down-> System : [DF6] Review Decisions (Accept / Reject)\n[DF7] Administrative Remarks
+System -up-> Admin : [DF8] Pending Claims Queue\n[DF9] Private Clue vs Claim Proof Comparison
+
+@enduml

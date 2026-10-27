@@ -1,0 +1,64 @@
+@startuml
+title CampusFind System - UML Object Diagram (Runtime Snapshot)
+
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam roundCorner 6
+skinparam ArrowColor #1F4E79
+skinparam objectBackgroundColor #FFFFFF
+skinparam objectBorderColor #1F4E79
+skinparam objectHeaderBackgroundColor #D9E1F2
+
+object "<u>appWindow : MainFrame</u>" as MainFrame {
+    title = "CampusFind — Campus Lost-and-Found System"
+    activeTab = "4. Review Claims (Demo Admin)"
+}
+
+object "<u>service : RecoveryService</u>" as Service {
+    itemsCount = 4
+    claimsCount = 2
+}
+
+object "<u>storage : FileStorage</u>" as Storage {
+    dataDirectory = "data"
+    itemsFilePath = "data/items.csv"
+    claimsFilePath = "data/claims.csv"
+}
+
+object "<u>backpack : Item</u>" as Item101 {
+    itemId = "ITM-101"
+    itemType = "FOUND"
+    title = "Blue Dell Laptop Backpack"
+    category = "Bags"
+    publicDescription = "Dark blue backpack found on 2nd floor library near table 4"
+    location = "Campus Library 2nd Floor"
+    reportDate = "2026-10-25"
+    contactInfo = "library-desk@campus.edu"
+    privateClue = "Contains a silver 16GB flash drive with an anime sticker and blue hydroflask"
+    itemStatus = "OPEN"
+}
+
+object "<u>claim1 : Claim</u>" as Claim501 {
+    claimId = "CLM-501"
+    itemId = "ITM-101"
+    claimantName = "Alex Rivera"
+    claimantContact = "arivera@student.univ.edu"
+    ownershipAnswer = "My backpack has my silver 16GB USB drive with an anime sticker and blue hydroflask inside."
+    claimStatus = "PENDING"
+    submissionDate = "2026-10-27"
+    reviewNotes = ""
+}
+
+MainFrame --> Service : recoveryService
+Service --> Storage : storage
+Service --> Item101 : items[0]
+Service --> Claim501 : claims[0]
+Claim501 --> Item101 : references (itemId="ITM-101")
+
+note bottom of Claim501
+  Verification match:
+  claim1.ownershipAnswer directly corroborates
+  backpack.privateClue without public disclosure.
+end note
+
+@enduml

@@ -1,0 +1,47 @@
+@startuml
+title CampusFind System - Use Case Diagram
+
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam packageStyle rectangle
+skinparam ArrowColor #1F4E79
+skinparam actorStyle awesome
+
+actor "Campus User\n(Student/Staff)" as User #D9E1F2
+actor "Campus Administrator\n(Reviewer)" as Admin #FCE4D6
+
+rectangle "CampusFind Lost-and-Found System" {
+    usecase "UC1: Report Lost Item" as UC1 #FFFFFF
+    usecase "UC2: Report Found Item\n(Record Private Clue)" as UC2 #FFFFFF
+    usecase "UC3: Browse & Search Items\n(Public Listings Only)" as UC3 #FFFFFF
+    usecase "UC4: Submit Ownership Claim\n(Provide Secret Detail)" as UC4 #FFFFFF
+    usecase "UC5: Review Pending Claims" as UC5 #FFFFFF
+    usecase "UC6: Compare Private Clue\nwith Claimant Answer" as UC6 #FFFFFF
+    usecase "UC7: Accept Claim &\nMark Item Resolved" as UC7 #FFFFFF
+    usecase "UC8: Reject Claim\nwith Explanation" as UC8 #FFFFFF
+    usecase "UC9: Persist Records Locally\n(CSV Storage)" as UC9 #F2F2F2
+}
+
+' User associations
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+
+' Admin associations
+Admin --> UC5
+Admin --> UC7
+Admin --> UC8
+
+' System inclusions & extensions
+UC5 ..> UC6 : <<include>>
+UC7 ..> UC5 : <<extend>>
+UC8 ..> UC5 : <<extend>>
+
+UC1 ..> UC9 : <<include>>
+UC2 ..> UC9 : <<include>>
+UC4 ..> UC9 : <<include>>
+UC7 ..> UC9 : <<include>>
+UC8 ..> UC9 : <<include>>
+
+@enduml

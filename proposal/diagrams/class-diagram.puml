@@ -1,0 +1,165 @@
+@startuml
+title CampusFind System - Detailed UML Class Diagram
+
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam classAttributeIconSize 0
+skinparam roundCorner 6
+skinparam ArrowColor #1F4E79
+skinparam classBackgroundColor #FFFFFF
+skinparam classBorderColor #1F4E79
+skinparam classHeaderBackgroundColor #D9E1F2
+
+class Main {
+    + {static} main(args: String[]) : void
+}
+
+class Item {
+    - itemId : String
+    - itemType : String
+    - title : String
+    - category : String
+    - publicDescription : String
+    - location : String
+    - reportDate : String
+    - contactInfo : String
+    - privateClue : String
+    - itemStatus : String
+    + Item()
+    + Item(itemId: String, itemType: String, title: String, category: String, desc: String, loc: String, date: String, contact: String, clue: String, status: String)
+    + getItemId() : String
+    + setItemId(id: String) : void
+    + getItemType() : String
+    + getTitle() : String
+    + getCategory() : String
+    + getPublicDescription() : String
+    + getLocation() : String
+    + getReportDate() : String
+    + getContactInfo() : String
+    + getPrivateClue() : String
+    + setPrivateClue(clue: String) : void
+    + getItemStatus() : String
+    + setItemStatus(status: String) : void
+    + isFound() : boolean
+    + isLost() : boolean
+    + isResolved() : boolean
+}
+
+class Claim {
+    - claimId : String
+    - itemId : String
+    - claimantName : String
+    - claimantContact : String
+    - ownershipAnswer : String
+    - claimStatus : String
+    - submissionDate : String
+    - reviewNotes : String
+    + Claim()
+    + Claim(claimId: String, itemId: String, name: String, contact: String, answer: String, status: String, date: String, notes: String)
+    + getClaimId() : String
+    + getItemId() : String
+    + getClaimantName() : String
+    + getClaimantContact() : String
+    + getOwnershipAnswer() : String
+    + getClaimStatus() : String
+    + setClaimStatus(status: String) : void
+    + getSubmissionDate() : String
+    + getReviewNotes() : String
+    + setReviewNotes(notes: String) : void
+    + isPending() : boolean
+    + isAccepted() : boolean
+    + isRejected() : boolean
+}
+
+class FileStorage {
+    - dataDirectory : String
+    - itemsFilePath : String
+    - claimsFilePath : String
+    + FileStorage()
+    + FileStorage(directoryName: String)
+    + loadItems() : List<Item>
+    + saveItems(items: List<Item>) : boolean
+    + loadClaims() : List<Claim>
+    + saveClaims(claims: List<Claim>) : boolean
+    - createInitialDemoItems() : List<Item>
+    - createInitialDemoClaims() : List<Claim>
+    - escapeCsv(value: String) : String
+    - parseCsvLine(line: String) : List<String>
+}
+
+class RecoveryService {
+    - storage : FileStorage
+    - items : List<Item>
+    - claims : List<Claim>
+    + RecoveryService()
+    + RecoveryService(storage: FileStorage)
+    + getAllItems() : List<Item>
+    + getItemById(itemId: String) : Item
+    + addItem(item: Item) : boolean
+    + searchItems(kw: String, cat: String, status: String, type: String) : List<Item>
+    + markItemResolved(itemId: String) : boolean
+    + generateNextItemId() : String
+    + getAllClaims() : List<Claim>
+    + getClaimsForItem(itemId: String) : List<Claim>
+    + getClaimById(claimId: String) : Claim
+    + submitClaim(claim: Claim) : boolean
+    + reviewClaim(claimId: String, accept: boolean, notes: String) : boolean
+    + generateNextClaimId() : String
+    + validateItem(item: Item) : String
+    + validateClaim(claim: Claim) : String
+    + reload() : void
+}
+
+class ItemTableModel {
+    - columnNames : String[]
+    - items : List<Item>
+    + ItemTableModel()
+    + ItemTableModel(items: List<Item>)
+    + setItems(newItems: List<Item>) : void
+    + getItemAt(rowIndex: int) : Item
+    + getRowCount() : int
+    + getColumnCount() : int
+    + getColumnName(col: int) : String
+    + getValueAt(row: int, col: int) : Object
+    + isCellEditable(row: int, col: int) : boolean
+}
+
+class MainFrame {
+    - recoveryService : RecoveryService
+    - itemTableModel : ItemTableModel
+    - tabbedPane : JTabbedPane
+    - itemTable : JTable
+    - claimTable : JTable
+    + MainFrame(service: RecoveryService)
+    - initUI() : void
+    - createHeaderPanel() : JPanel
+    - createBrowsePanel() : JPanel
+    - createReportPanel() : JPanel
+    - createClaimPanel() : JPanel
+    - createReviewPanel() : JPanel
+    - createStatusBar() : JPanel
+    - performSearch() : void
+    - handleReportSubmit() : void
+    - handleClaimSubmit() : void
+    - handleReviewDecision(accept: boolean) : void
+    + refreshAllData() : void
+}
+
+abstract class AbstractTableModel
+
+' Relationships
+AbstractTableModel <|-- ItemTableModel
+Main ..> MainFrame : <<creates>>
+Main ..> RecoveryService : <<creates>>
+Main ..> FileStorage : <<creates>>
+MainFrame o-- RecoveryService : business logic
+MainFrame o-- ItemTableModel : table view
+RecoveryService o-- FileStorage : persistence
+RecoveryService "1" *-- "0..*" Item : manages
+RecoveryService "1" *-- "0..*" Claim : manages
+ItemTableModel "1" o-- "0..*" Item : displays public info
+FileStorage ..> Item : reads/writes
+FileStorage ..> Claim : reads/writes
+Claim ..> Item : references itemId
+
+@enduml

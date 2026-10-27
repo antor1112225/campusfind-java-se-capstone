@@ -1,0 +1,52 @@
+@startuml
+title CampusFind System - Entity Relationship Diagram (ERD)
+
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam roundCorner 8
+skinparam linetype ortho
+skinparam classBackgroundColor #FFFFFF
+skinparam classBorderColor #1F4E79
+skinparam classHeaderBackgroundColor #D9E1F2
+
+entity "ITEM" as Item {
+    * **itemId** : VARCHAR(20) [PK]
+    --
+    * itemType : VARCHAR(10) <<LOST | FOUND>>
+    * title : VARCHAR(100)
+    * category : VARCHAR(50)
+    * publicDescription : TEXT
+    * location : VARCHAR(100)
+    * reportDate : VARCHAR(15)
+    * contactInfo : VARCHAR(100)
+    privateClue : TEXT <<Confidential>>
+    * itemStatus : VARCHAR(15) <<OPEN | RESOLVED>>
+}
+
+entity "CLAIM" as Claim {
+    * **claimId** : VARCHAR(20) [PK]
+    --
+    * itemId : VARCHAR(20) [FK -> ITEM.itemId]
+    * claimantName : VARCHAR(100)
+    * claimantContact : VARCHAR(100)
+    * ownershipAnswer : TEXT <<Secret Proof>>
+    * claimStatus : VARCHAR(15) <<PENDING | ACCEPTED | REJECTED>>
+    * submissionDate : VARCHAR(15)
+    reviewNotes : TEXT
+}
+
+Item ||..o{ Claim : "receives (1 to 0..*)"
+
+note right of Item::privateClue
+  Confidential attribute:
+  Stored in data store but
+  filtered out from public queries.
+end note
+
+note right of Claim::ownershipAnswer
+  Claimant's verification answer:
+  Compared against Item.privateClue
+  during administrative review.
+end note
+
+@enduml

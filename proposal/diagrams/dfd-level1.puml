@@ -1,0 +1,44 @@
+@startuml
+title CampusFind System - Level 1 Data Flow Diagram (DFD)
+
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam roundCorner 8
+skinparam ArrowColor #1F4E79
+skinparam ArrowThickness 1.5
+
+rectangle "Campus User" as User #D9E1F2
+rectangle "Campus Administrator" as Admin #FCE4D6
+
+circle "1.0\nRecord Item" as P1 #BDD7EE
+circle "2.0\nBrowse & Search\nItems" as P2 #BDD7EE
+circle "3.0\nSubmit Ownership\nClaim" as P3 #BDD7EE
+circle "4.0\nVerify &\nReview Claims" as P4 #BDD7EE
+circle "5.0\nResolve Item &\nCompete Queue" as P5 #BDD7EE
+
+database "D1: Items Store\n(items.csv)" as D1 #E2EFDA
+database "D2: Claims Store\n(claims.csv)" as D2 #E2EFDA
+
+' Flows from User
+User --> P1 : [DF1] Item details & private clue
+User --> P2 : [DF2] Keyword, category, filter query
+P2 --> User : [DF3] Public listings (clues hidden)
+User --> P3 : [DF4] Target Item ID, claimant proof
+
+' Process to Data Stores
+P1 --> D1 : [DF5] Write new item record
+D1 --> P2 : [DF6] Read open item records
+P3 --> D1 : [DF7] Validate item exists & OPEN
+P3 --> D2 : [DF8] Store new pending claim
+
+' Admin & Verification
+D2 --> P4 : [DF9] Fetch pending claims
+D1 --> P4 : [DF10] Fetch private clue for comparison
+P4 --> Admin : [DF11] Present clue vs claimant proof
+Admin --> P4 : [DF12] Accept / Reject decision & notes
+
+P4 --> P5 : [DF13] Trigger resolution on acceptance
+P5 --> D1 : [DF14] Update Item status to RESOLVED
+P5 --> D2 : [DF15] Update accepted claim & auto-reject competing
+
+@enduml
