@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 660" width="100%" height="100%">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#1E3A8A" />
+    </marker>
+    <marker id="arrow-dash" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#64748B" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#F8FAFC" />
+
+  <!-- Diagram Title -->
+  <text x="490" y="34" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="bold" fill="#0F172A" text-anchor="middle">
+    Use Case Diagram — CampusFind System
+  </text>
+  <text x="490" y="54" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#64748B" text-anchor="middle">
+    Actors, System Boundaries, Core Use Cases, and Functional Dependencies
+  </text>
+
+  <!-- System Boundary Box -->
+  <g transform="translate(240, 75)" filter="url(#shadow)">
+    <rect width="500" height="545" rx="12" fill="#FFFFFF" stroke="#0369A1" stroke-width="2.2" />
+    <rect width="500" height="34" rx="12" fill="#E0F2FE" />
+    <text x="250" y="23" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold" fill="#0369A1" text-anchor="middle">
+      System Boundary: CampusFind Desktop Application
+    </text>
+  </g>
+
+  <!-- Actor 1: Campus User (Left) -->
+  <g transform="translate(60, 200)">
+    <!-- Stick figure -->
+    <circle cx="50" cy="30" r="18" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="2.5" />
+    <line x1="50" y1="48" x2="50" y2="105" stroke="#1D4ED8" stroke-width="3" />
+    <line x1="20" y1="70" x2="80" y2="70" stroke="#1D4ED8" stroke-width="3" />
+    <line x1="50" y1="105" x2="25" y2="155" stroke="#1D4ED8" stroke-width="3" />
+    <line x1="50" y1="105" x2="75" y2="155" stroke="#1D4ED8" stroke-width="3" />
+
+    <rect x="-10" y="165" width="120" height="48" rx="6" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5" />
+    <text x="50" y="184" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold" fill="#1E3A8A" text-anchor="middle">Campus User</text>
+    <text x="50" y="200" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5" fill="#475569" text-anchor="middle">(Student / Staff)</text>
+  </g>
+
+  <!-- Actor 2: Campus Administrator (Right) -->
+  <g transform="translate(820, 260)">
+    <!-- Stick figure -->
+    <circle cx="50" cy="30" r="18" fill="#FFEDD5" stroke="#EA580C" stroke-width="2.5" />
+    <line x1="50" y1="48" x2="50" y2="105" stroke="#EA580C" stroke-width="3" />
+    <line x1="20" y1="70" x2="80" y2="70" stroke="#EA580C" stroke-width="3" />
+    <line x1="50" y1="105" x2="25" y2="155" stroke="#EA580C" stroke-width="3" />
+    <line x1="50" y1="105" x2="75" y2="155" stroke="#EA580C" stroke-width="3" />
+
+    <rect x="-15" y="165" width="130" height="48" rx="6" fill="#FFF7ED" stroke="#FDBA74" stroke-width="1.5" />
+    <text x="50" y="184" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold" fill="#9A3412" text-anchor="middle">Campus Admin</text>
+    <text x="50" y="200" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5" fill="#475569" text-anchor="middle">(Lost &amp; Found Staff)</text>
+  </g>
+
+  <!-- Use Cases Inside System Boundary -->
+  <!-- UC1: Report Lost Item -->
+  <g transform="translate(290, 125)">
+    <ellipse cx="120" cy="22" rx="110" ry="22" fill="#F0F9FF" stroke="#0284C7" stroke-width="1.8" />
+    <text x="120" y="26" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0C4A6E" text-anchor="middle">UC1: Report Lost Item</text>
+  </g>
+
+  <!-- UC2: Report Found Item -->
+  <g transform="translate(290, 180)">
+    <ellipse cx="120" cy="22" rx="110" ry="22" fill="#F0F9FF" stroke="#0284C7" stroke-width="1.8" />
+    <text x="120" y="21" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0C4A6E" text-anchor="middle">UC2: Report Found Item</text>
+    <text x="120" y="34" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#0369A1" text-anchor="middle">(Store Private Clue)</text>
+  </g>
+
+  <!-- UC3: Browse & Search Items -->
+  <g transform="translate(290, 240)">
+    <ellipse cx="120" cy="22" rx="110" ry="22" fill="#F0F9FF" stroke="#0284C7" stroke-width="1.8" />
+    <text x="120" y="21" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0C4A6E" text-anchor="middle">UC3: Browse &amp; Search Items</text>
+    <text x="120" y="34" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#0369A1" text-anchor="middle">(Public Listings Only)</text>
+  </g>
+
+  <!-- UC4: Submit Claim -->
+  <g transform="translate(290, 300)">
+    <ellipse cx="120" cy="22" rx="110" ry="22" fill="#F0F9FF" stroke="#0284C7" stroke-width="1.8" />
+    <text x="120" y="21" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0C4A6E" text-anchor="middle">UC4: Submit Ownership Claim</text>
+    <text x="120" y="34" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#0369A1" text-anchor="middle">(Provide Secret Proof)</text>
+  </g>
+
+  <!-- UC5: Review Pending Claims -->
+  <g transform="translate(480, 360)">
+    <ellipse cx="120" cy="22" rx="110" ry="22" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.8" />
+    <text x="120" y="26" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#7C2D12" text-anchor="middle">UC5: Review Pending Claims</text>
+  </g>
+
+  <!-- UC6: Compare Clue with Answer -->
+  <g transform="translate(280, 420)">
+    <ellipse cx="120" cy="22" rx="110" ry="22" fill="#FEF3C7" stroke="#D97706" stroke-width="1.8" />
+    <text x="120" y="21" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#78350F" text-anchor="middle">UC6: Compare Private Clue</text>
+    <text x="120" y="34" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#92400E" text-anchor="middle">with Claimant Answer</text>
+  </g>
+
+  <!-- UC7: Accept Claim & Resolve -->
+  <g transform="translate(490, 470)">
+    <ellipse cx="115" cy="22" rx="110" ry="22" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.8" />
+    <text x="115" y="21" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#14532D" text-anchor="middle">UC7: Accept Claim</text>
+    <text x="115" y="34" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#166534" text-anchor="middle">&amp; Mark Item Resolved</text>
+  </g>
+
+  <!-- UC8: Reject Claim -->
+  <g transform="translate(490, 530)">
+    <ellipse cx="115" cy="22" rx="110" ry="22" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.8" />
+    <text x="115" y="21" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#7F1D1D" text-anchor="middle">UC8: Reject Claim</text>
+    <text x="115" y="34" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#991B1B" text-anchor="middle">with Explanation</text>
+  </g>
+
+  <!-- Connections: User to Use Cases -->
+  <line x1="160" y1="230" x2="290" y2="147" stroke="#1E3A8A" stroke-width="1.8" />
+  <line x1="160" y1="240" x2="290" y2="202" stroke="#1E3A8A" stroke-width="1.8" />
+  <line x1="160" y1="250" x2="290" y2="262" stroke="#1E3A8A" stroke-width="1.8" />
+  <line x1="160" y1="270" x2="290" y2="322" stroke="#1E3A8A" stroke-width="1.8" />
+
+  <!-- Connections: Admin to Use Cases -->
+  <line x1="820" y1="360" x2="700" y2="382" stroke="#EA580C" stroke-width="1.8" />
+  <line x1="820" y1="380" x2="710" y2="492" stroke="#EA580C" stroke-width="1.8" />
+  <line x1="820" y1="400" x2="710" y2="552" stroke="#EA580C" stroke-width="1.8" />
+
+  <!-- <<include>> and <<extend>> dependencies -->
+  <!-- UC5 includes UC6 -->
+  <path d="M 520 382 L 440 422" fill="none" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrow-dash)" />
+  <text x="495" y="415" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="600" fill="#475569">&lt;&lt;include&gt;&gt;</text>
+
+  <!-- UC7 extends UC5 -->
+  <path d="M 590 470 L 590 408" fill="none" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrow-dash)" />
+  <text x="600" y="445" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="600" fill="#475569">&lt;&lt;extend&gt;&gt;</text>
+
+  <!-- UC8 extends UC5 -->
+  <path d="M 640 530 L 640 408" fill="none" stroke="#64748B" stroke-width="1.5" stroke-dasharray="4,4" marker-end="url(#arrow-dash)" />
+  <text x="648" y="475" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="600" fill="#475569">&lt;&lt;extend&gt;&gt;</text>
+
+  <!-- Footer explanation -->
+  <rect x="240" y="628" width="500" height="24" rx="4" fill="#F1F5F9" />
+  <text x="490" y="644" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#475569" text-anchor="middle">
+    Notice: Regular users never trigger UC5, UC6, UC7, or UC8 directly.
+  </text>
+</svg>

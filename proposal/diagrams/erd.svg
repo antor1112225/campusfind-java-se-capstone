@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 600" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#F8FAFC" />
+
+  <!-- Diagram Header -->
+  <text x="490" y="32" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="bold" fill="#0F172A" text-anchor="middle">
+    Entity Relationship Diagram (ERD) — Logical Data Model
+  </text>
+  <text x="490" y="52" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#64748B" text-anchor="middle">
+    Relational Cardinality (1 : 0..*), Primary &amp; Foreign Keys, and Confidentiality Designations
+  </text>
+
+  <!-- Entity 1: ITEM (Left) -->
+  <g transform="translate(60, 85)" filter="url(#shadow)">
+    <rect width="360" height="420" rx="8" fill="#FFFFFF" stroke="#0284C7" stroke-width="2" />
+    <!-- Header -->
+    <path d="M 0 8 Q 0 0 8 0 L 352 0 Q 360 0 360 8 L 360 40 L 0 40 Z" fill="#0284C7" />
+    <text x="180" y="25" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+      ITEM (Entity)
+    </text>
+
+    <!-- Attributes -->
+    <!-- PK -->
+    <rect x="0" y="40" width="360" height="34" fill="#E0F2FE" />
+    <text x="20" y="62" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" fill="#0369A1">PK</text>
+    <text x="55" y="62" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">itemId</text>
+    <text x="220" y="62" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#64748B">VARCHAR(20)</text>
+    <line x1="0" y1="74" x2="360" y2="74" stroke="#BAE6FD" stroke-width="1.5" />
+
+    <!-- Attributes list -->
+    <g font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#334155">
+      <text x="55" y="100">itemType</text> <text x="220" y="100" fill="#64748B">VARCHAR(10) [LOST|FOUND]</text>
+      <text x="55" y="132">title</text> <text x="220" y="132" fill="#64748B">VARCHAR(100)</text>
+      <text x="55" y="164">category</text> <text x="220" y="164" fill="#64748B">VARCHAR(50)</text>
+      <text x="55" y="196">publicDescription</text> <text x="220" y="196" fill="#64748B">TEXT</text>
+      <text x="55" y="228">location</text> <text x="220" y="228" fill="#64748B">VARCHAR(100)</text>
+      <text x="55" y="260">reportDate</text> <text x="220" y="260" fill="#64748B">VARCHAR(15) [ISO]</text>
+      <text x="55" y="292">contactInfo</text> <text x="220" y="292" fill="#64748B">VARCHAR(100)</text>
+
+      <!-- Highlighted Private Clue -->
+      <rect x="0" y="308" width="360" height="34" fill="#FEF3C7" />
+      <text x="20" y="330" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#D97706">SEC</text>
+      <text x="55" y="330" font-weight="bold" fill="#92400E">privateClue</text>
+      <text x="220" y="330" font-weight="bold" fill="#B45309">TEXT [Confidential]</text>
+
+      <text x="55" y="372">itemStatus</text> <text x="220" y="372" fill="#64748B">VARCHAR(15) [OPEN|RESOLVED]</text>
+    </g>
+    <rect x="15" y="390" width="330" height="20" rx="4" fill="#F1F5F9" />
+    <text x="180" y="404" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#64748B" text-anchor="middle">
+      Physical Mapping: data/items.csv
+    </text>
+  </g>
+
+  <!-- Entity 2: CLAIM (Right) -->
+  <g transform="translate(560, 85)" filter="url(#shadow)">
+    <rect width="360" height="420" rx="8" fill="#FFFFFF" stroke="#EA580C" stroke-width="2" />
+    <!-- Header -->
+    <path d="M 0 8 Q 0 0 8 0 L 352 0 Q 360 0 360 8 L 360 40 L 0 40 Z" fill="#EA580C" />
+    <text x="180" y="25" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+      CLAIM (Entity)
+    </text>
+
+    <!-- Attributes -->
+    <!-- PK -->
+    <rect x="0" y="40" width="360" height="34" fill="#FFEDD5" />
+    <text x="20" y="62" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" fill="#C2410C">PK</text>
+    <text x="55" y="62" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold" fill="#0F172A">claimId</text>
+    <text x="220" y="62" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#64748B">VARCHAR(20)</text>
+    <line x1="0" y1="74" x2="360" y2="74" stroke="#FED7AA" stroke-width="1.5" />
+
+    <!-- FK -->
+    <rect x="0" y="75" width="360" height="32" fill="#EFF6FF" />
+    <text x="20" y="96" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="bold" fill="#2563EB">FK</text>
+    <text x="55" y="96" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="bold" fill="#1E40AF">itemId</text>
+    <text x="220" y="96" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#2563EB">ref ITEM.itemId</text>
+    <line x1="0" y1="107" x2="360" y2="107" stroke="#BFDBFE" stroke-width="1" />
+
+    <!-- Attributes list -->
+    <g font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#334155">
+      <text x="55" y="132">claimantName</text> <text x="220" y="132" fill="#64748B">VARCHAR(100)</text>
+      <text x="55" y="164">claimantContact</text> <text x="220" y="164" fill="#64748B">VARCHAR(100)</text>
+
+      <!-- Highlighted Secret Proof -->
+      <rect x="0" y="178" width="360" height="34" fill="#FEF3C7" />
+      <text x="20" y="200" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#D97706">PRF</text>
+      <text x="55" y="200" font-weight="bold" fill="#92400E">ownershipAnswer</text>
+      <text x="220" y="200" font-weight="bold" fill="#B45309">TEXT [Secret Proof]</text>
+
+      <text x="55" y="244">claimStatus</text> <text x="220" y="244" fill="#64748B">VARCHAR(15) [PEND|ACC|REJ]</text>
+      <text x="55" y="276">submissionDate</text> <text x="220" y="276" fill="#64748B">VARCHAR(15) [ISO]</text>
+      <text x="55" y="308">reviewNotes</text> <text x="220" y="308" fill="#64748B">TEXT [Admin Remarks]</text>
+    </g>
+    <rect x="15" y="390" width="330" height="20" rx="4" fill="#F1F5F9" />
+    <text x="180" y="404" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#64748B" text-anchor="middle">
+      Physical Mapping: data/claims.csv
+    </text>
+  </g>
+
+  <!-- Relationship Connector (1 to 0..*) Crow's Foot -->
+  <g stroke="#1F4E79" stroke-width="2.5" fill="none">
+    <!-- Main line -->
+    <path d="M 420 180 L 560 180" />
+
+    <!-- 1 side (Item): two vertical tick bars -->
+    <line x1="432" y1="170" x2="432" y2="190" stroke="#1F4E79" stroke-width="2.5" />
+    <line x1="440" y1="170" x2="440" y2="190" stroke="#1F4E79" stroke-width="2.5" />
+
+    <!-- Many side (Claim): circle (optional 0) and crow's foot (many) -->
+    <circle cx="538" cy="180" r="5" fill="#FFFFFF" stroke="#1F4E79" stroke-width="2" />
+    <path d="M 545 180 L 560 170 M 545 180 L 560 190" stroke="#1F4E79" stroke-width="2.5" />
+  </g>
+
+  <!-- Relationship Label -->
+  <g transform="translate(440, 135)">
+    <rect width="100" height="30" rx="4" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1" />
+    <text x="50" y="16" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="bold" fill="#1E3A8A" text-anchor="middle">receives</text>
+    <text x="50" y="27" font-family="'Segoe UI', Arial, sans-serif" font-size="9" fill="#475569" text-anchor="middle">(1 to 0..*)</text>
+  </g>
+
+  <!-- Verification Comparison Link (Orange Dashed) -->
+  <path d="M 420 410 C 470 460, 510 460, 560 280" fill="none" stroke="#D97706" stroke-width="2" stroke-dasharray="6,4" />
+  <g transform="translate(425, 460)">
+    <rect width="130" height="34" rx="4" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.2" />
+    <text x="65" y="16" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="bold" fill="#78350F" text-anchor="middle">Verification Match</text>
+    <text x="65" y="28" font-family="'Segoe UI', Arial, sans-serif" font-size="9" fill="#92400E" text-anchor="middle">privateClue ≈ answer</text>
+  </g>
+
+  <!-- Architectural Note Footer -->
+  <rect x="60" y="530" width="860" height="50" rx="6" fill="#F8FAFC" stroke="#CBD5E1" />
+  <text x="490" y="550" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#334155" text-anchor="middle">
+    Logical Model vs. Physical Storage Architecture Note:
+  </text>
+  <text x="490" y="568" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">
+    This ERD specifies the relational data model. In the prototype, these entities are mapped directly to local CSV files (data/items.csv and data/claims.csv), with RecoveryService enforcing foreign-key integrity programmatically.
+  </text>
+</svg>
