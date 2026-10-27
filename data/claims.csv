@@ -1,0 +1,3 @@
+claimId,itemId,claimantName,claimantContact,ownershipAnswer,claimStatus,submissionDate,reviewNotes
+"CLM-501","ITM-101","Alex Rivera","arivera@student.univ.edu","My backpack has my silver 16GB USB drive with an anime sticker and blue hydroflask inside.","PENDING","2026-10-27",""
+"CLM-502","ITM-102","Taylor Brooks","tbrooks@student.univ.edu","I think that is my calculator, I lost one yesterday in the lab.","REJECTED","2026-10-27","Claimant could not describe the battery cover or identifying marks."

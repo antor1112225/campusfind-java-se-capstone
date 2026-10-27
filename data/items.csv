@@ -1,0 +1,5 @@
+itemId,itemType,title,category,publicDescription,location,reportDate,contactInfo,privateClue,itemStatus
+"ITM-101","FOUND","Blue Dell Laptop Backpack","Bags","Dark blue backpack found on 2nd floor library near table 4","Campus Library 2nd Floor","2026-10-25","library-desk@campus.edu","Contains a silver 16GB flash drive with an anime sticker and blue hydroflask","OPEN"
+"ITM-102","FOUND","Casio fx-991EX Scientific Calculator","Electronics","Black scientific calculator with slide-on protective hard case","Science Building Lab 302","2026-10-26","sec-lab302@campus.edu","Battery cover held in place by small piece of yellow masking tape","OPEN"
+"ITM-103","LOST","Student ID Card (Jordan Smith)","IDs/Cards","Undergraduate student card in clear plastic lanyard sleeve","Student Center Cafeteria","2026-10-27","jsmith@student.univ.edu","","OPEN"
+"ITM-104","FOUND","Silver Stainless Steel Water Bottle","Other","32oz insulated bottle with several national park stickers","Gymnasium Bleachers","2026-10-27","athletics@campus.edu","Scratch on bottom with scratched initials J.D.","OPEN"
